@@ -26,7 +26,7 @@
             </div>
            <div class="option-bar">
                <ul class="option-bar__list">
-                   <li><i class="fa-solid fa-bars-progress option-bar__icon" title="progress bar"></i></li>
+                  
                    <li><i class="fa-solid fa-volume-off option-bar__icon" title="volume"></i></li>
                </ul>
                <i class="fa-solid fa-gear"></i>
@@ -35,59 +35,26 @@
         <section class="music mt-5 ">
             <div class="container">
                 <div class="row text-center gy-5">
-                    <div class="col-12 mb-5">
+                    <div class="col-8 mb-5 mx-auto audio-card">
                         <div class="audio d-flex flex-column align-items-center mb-4">
-                            <img src="./image-video-audio/vinyl_red.png" class="vinyl" alt="red">
-                            <audio controls class="audio-player">
+                            <img src="./image-video-audio/vinyl1.png" class="vinyl" alt="red" id="vinyl">
+                            <audio class="audio-player">
                                 <source src="./image-video-audio/moldanazar_mahabbatym.mp3" type="audio/ogg">
                             </audio>
-
                         </div>
-                       
                         <div class="intro">
                             <h2 class="intro__title">moldanazar <span>mahabbatym</span> </h2>
-                            <p class="intro__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Perferendis expedita a illum omnis temporibus.  
-                                Hic aperiam corporis vel magnam.</p>
+                            <div class="audio-bar">
+                                <div class="audio-btns">
+                                    <i class="fa-solid fa-backward mx-2" id="audio-prev"></i>
+                                    <i class="fa-solid fa-play mx-2" id="audio-play"></i>
+                                    <i class="fa-solid fa-forward mx-2" id="audio-next"></i>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
-                    <div class="col-12 mb-5">
-                        <div class="audio d-flex flex-column align-items-center mb-4">
-                            <img src="./image-video-audio/vinyl_white.png" class="vinyl" alt="white">
-                            <audio controls class="audio-player">
-                                <source src="./image-video-audio/moldanazar_ozin_gana.mp3" type="audio/ogg">
-                            </audio>
-                            
-
-                        </div>
-                        <div class="intro">
-                            <h2 class="intro__title">moldanazar <span>ozin gana</span> </h2>
-                            <p class="intro__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Perferendis expedita a illum omnis temporibus. 
-                                Hic aperiam corporis vel magnam.</p>
-                        </div>
-                        
-                    </div>
-                    <div class="col-12 mb-5">
-                        <div class="audio d-flex flex-column align-items-center mb-4">
-                            <img src="./image-video-audio/vinyl_yellow.png" class="vinyl" alt="yellow">
-                            <audio controls class="audio-player">
-                                <source src="./image-video-audio/moldanazar_meyrimdy_bol.mp3" type="audio/ogg">
-                                
-                            </audio>
-                            
-
-                        </div>
-                       
-                        <div class="intro">
-                            <h2 class="intro__title">moldanazar <span>meyrimdy bol</span> </h2>
-                            <p class="intro__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Perferendis expedita a illum omnis temporibus. 
-                                Hic aperiam corporis vel magnam.</p>
-                        </div>
-                        
-                    </div>
+                   
                 </div>
 
             </div>

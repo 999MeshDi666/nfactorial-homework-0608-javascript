@@ -25,17 +25,7 @@ optionBtn.addEventListener('mouseover',()=>{
 })
 
 
-// function showHideOption(option, attr){
-//     option.addEventListener('click', ()=>{
-//         if(!attr){
-//             attr = true;
-//         }else{
-//             attr = false;
-//         }
-//         alert(`Опция ${attr === true ? 'выключена': 'включена'}`)
-//     });
 
-// }
 let volume = document.querySelector('.fa-volume-off');
 volume.addEventListener('click', ()=>{
     if(!videoBack.muted){
@@ -46,20 +36,10 @@ volume.addEventListener('click', ()=>{
     alert(`Звук ${videoBack.muted === true ? 'выключен': 'включен'}`)
 });
 
-let controller = document.querySelector('.fa-bars-progress');
-controller.addEventListener('click', ()=>{
-    if(!videoBack.controls){
-        videoBack.controls = true;
-    }else{
-        videoBack.controls = false;
-        
-        
-    }
-    alert(`Контоллер ${videoBack.controls === true ? 'включен': 'выключен'}`)
-});
 
 
 let vinyl = document.querySelectorAll('.vinyl');
+let vinylImg = document.getElementById('vinyl');
 vinyl.forEach((event)=>{
     event.addEventListener('click', ()=>{
         event.classList.toggle('vinyl_animation');
@@ -67,7 +47,32 @@ vinyl.forEach((event)=>{
     })
 });
 
+let audioNext = document.getElementById('audio-next');
+let audioPrev = document.getElementById('audio-prev');
+let imgIndex = 1;
 
+function nextPrevBtn(btn){
+    btn.addEventListener('click', ()=>{
+        if(btn == audioNext){
+            imgIndex = imgIndex + 1;
+            if(imgIndex > 3){
+                imgIndex = 1;
+            }
+        }
+        else{
+            imgIndex = imgIndex - 1;
+            if(imgIndex <= 0){
+                imgIndex = 3;
+            }
+        }
+        console.log(imgIndex)
+        vinylImg.src = `./image-video-audio/vinyl${imgIndex}.png`
+        
+    });
+   
+}
+nextPrevBtn(audioNext);
+nextPrevBtn(audioPrev);
 
 
 
