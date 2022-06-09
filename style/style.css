@@ -173,6 +173,7 @@ ul,li{
        
         border-radius: 10px;
         background-color: rgb(129, 129, 129);
+        
         -webkit-box-shadow: 0px 0px 13px 8px rgba(0, 0, 0, 0.2);
         -moz-box-shadow: 0px 0px 13px 8px rgba(0, 0, 0, 0.2);
         box-shadow: 0px 0px 13px 8px rgba(0, 0, 0, 0.2);
@@ -226,9 +227,22 @@ ul,li{
 
     .audio-btns{
         font-size: 20px;
+        
     }
-    :is(.fa-backward,.fa-play,.fa-forward):active{
+    :is(.fa-backward,.fa-play,.fa-pause,.fa-forward){
+        cursor: pointer;
+    }
+    :is(.fa-backward,.fa-play,.fa-pause,.fa-forward):active{
         color: rgb(203, 203, 203);
+       
+    }
+    .audio-progress-bar{
+        padding: 0 5px;
+        height: 1.5px;
+        
+        background-color: rgb(255, 255, 255);
+        box-sizing: border-box;
+        margin: 20px 0;
     }
     
     
@@ -259,6 +273,9 @@ ul,li{
         padding: 20px 5px;
         
 
+    }
+    .audio-btns{
+        font-size: 24px;
     }
 }
 @media (min-width:1200px){

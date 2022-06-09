@@ -37,35 +37,76 @@ volume.addEventListener('click', ()=>{
 });
 
 
-
-
-let vinylImg = document.getElementById('vinyl');
-let audioPlayer = document.querySelector('.audio-player');
-let audioNext = document.getElementById('audio-next');
-let audioPrev = document.getElementById('audio-prev');
-let audioPlay = document.getElementById('audio-play');
-
-let index = 0;
+/////audio player
 const audioList = [
     {
         vinylImg: './image-video-audio/vinyl0.png',
-        title: 'Moldanazar Mahabbatyym',
+        title: 'Moldanazar <span> Mahabbatym </span>',
         song: './image-video-audio/moldanazar0.mp3'
 
     },
     {
         vinylImg: './image-video-audio/vinyl1.png',
-        title: 'Moldanazar Ozin gana',
+        title: 'Moldanazar <span> Meyrimdi bol </span>',
         song: './image-video-audio/moldanazar1.mp3'
 
     },
     {
         vinylImg: './image-video-audio/vinyl2.png',
-        title: 'Moldanazar Meyrimdi bol',
+        title: 'Moldanazar <span> Ozin gana </span>',
         song: './image-video-audio/moldanazar2.mp3'
 
     }
-]
+];
+
+let vinylImg = document.getElementById('vinyl');
+let audioPlayer = document.querySelector('.audio-player');
+let audioTitle = document.querySelector('.intro__title');
+let audioProgBar = document.querySelector('.audio-progress-bar');
+let audioNext = document.getElementById('audio-next');
+let audioPrev = document.getElementById('audio-prev');
+let audioPlay = document.getElementById('audio-play');
+
+let index = 0;
+let progressCounter = 0;
+let progressHalf = audioPlayer.duration / 2;
+
+let progressCount = () =>{
+    if(progressCounter == progressHalf){
+        audioProgBar.style.margin = '20px auto';
+    }
+
+    progressCounter = progressCounter + 1;
+    audioProgBar.style.width = `${progressCounter}px`;
+    
+}
+function offAudio(){
+    progressCounter = 0;
+    audioPlayer.pause();
+    clearInterval(progressCount);
+    vinylImg.classList.remove('vinyl_animation');
+    audioPlay.className = 'fa-solid fa-play mx-2';
+}
+
+audioPlay.addEventListener('click', ()=>{
+    audioPlay.className = 'fa-play' == audioPlay.classList[1] ? 'fa-solid fa-pause mx-2' : 'fa-solid fa-play mx-2';
+    if(audioPlayer.paused){
+        audioPlayer.play();
+        if(progressCounter == audioPlayer.duration){
+            offAudio()
+        }
+        setInterval(progressCount,1000);
+        
+    }else{
+        audioPlayer.pause();
+        clearInterval(progressCount);
+    }
+    vinylImg.classList.toggle('vinyl_animation');
+
+})
+
+
+
 function nextPrevBtn(btn){
     btn.addEventListener('click', ()=>{
         if(btn == audioNext){
@@ -75,19 +116,19 @@ function nextPrevBtn(btn){
             }
         }
         else{
-            imgIndex = imgIndex - 1;
-            if(index <= 0){
+            index = index - 1;
+            if(index < 0){
                 index = 2;
             }
         }
         console.log(index);
         
-        audioPlay.className = 'fa-solid fa-play mx-2';
-        vinylImg.classList.remove('vinyl_animation');
-        audioPlayer.pause();
+        offAudio();
         
         vinylImg.src = audioList[index].vinylImg;
         audioPlayer.src = audioList[index].song;
+        audioTitle.innerHTML = audioList[index].title;
+
         
     });
    
@@ -96,15 +137,6 @@ nextPrevBtn(audioNext);
 nextPrevBtn(audioPrev);
 
 
-audioPlay.addEventListener('click', ()=>{
-    audioPlay.className = 'fa-play' == audioPlay.classList[1] ? 'fa-solid fa-pause mx-2' : 'fa-solid fa-play mx-2';
-    if(audioPlayer.paused){
-        audioPlayer.play();
-    }else{
-        audioPlayer.pause();
-    }
-    vinylImg.classList.toggle('vinyl_animation');
-})
 
 
 
