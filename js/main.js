@@ -25,7 +25,17 @@ optionBtn.addEventListener('mouseover',()=>{
 })
 
 
+// function showHideOption(option, attr){
+//     option.addEventListener('click', ()=>{
+//         if(!attr){
+//             attr = true;
+//         }else{
+//             attr = false;
+//         }
+//         alert(`Опция ${attr === true ? 'выключена': 'включена'}`)
+//     });
 
+// }
 let volume = document.querySelector('.fa-volume-off');
 volume.addEventListener('click', ()=>{
     if(!videoBack.muted){
