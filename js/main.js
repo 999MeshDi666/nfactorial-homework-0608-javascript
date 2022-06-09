@@ -46,4 +46,13 @@ controller.addEventListener('click', ()=>{
         
     }
     alert(`Контоллер ${videoBack.controls === true ? 'включен': 'выключен'}`)
-})
+});
+
+let vinyl = document.querySelectorAll('.vinyl');
+vinyl.forEach((event)=>
+{event.addEventListener('click', ()=>{
+        event.classList.toggle('vinyl_animation');
+    })
+});
+
+
