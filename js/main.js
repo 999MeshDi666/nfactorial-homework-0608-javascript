@@ -68,39 +68,41 @@ let audioPrev = document.getElementById('audio-prev');
 let audioPlay = document.getElementById('audio-play');
 
 let index = 0;
-let progressCounter = 0;
-let progressHalf = audioPlayer.duration / 2;
-
+let progressCounter = 1;
+let progressInterval;
 let progressCount = () =>{
-    if(progressCounter == progressHalf){
-        audioProgBar.style.margin = '20px auto';
-    }
-
     progressCounter = progressCounter + 1;
     audioProgBar.style.width = `${progressCounter}px`;
     
+    if(progressCounter >= duration){
+        offAudio()
+    }
 }
+
+
 function offAudio(){
     progressCounter = 0;
+    audioProgBar.style.width = `${progressCounter}px`;
+
     audioPlayer.pause();
-    clearInterval(progressCount);
-    vinylImg.classList.remove('vinyl_animation');
     audioPlay.className = 'fa-solid fa-play mx-2';
+    
+    clearInterval(progressInterval);
+    vinylImg.classList.remove('vinyl_animation');
 }
 
 audioPlay.addEventListener('click', ()=>{
     audioPlay.className = 'fa-play' == audioPlay.classList[1] ? 'fa-solid fa-pause mx-2' : 'fa-solid fa-play mx-2';
+    let duration = Math.floor(audioPlayer.duration);
+    console.log(duration);
     if(audioPlayer.paused){
         audioPlayer.play();
-        if(progressCounter == audioPlayer.duration){
-            offAudio()
-        }
-        setInterval(progressCount,1000);
-        
+        progressInterval =  setInterval(progressCount,1000);
     }else{
         audioPlayer.pause();
-        clearInterval(progressCount);
+        clearInterval(progressInterval);
     }
+    
     vinylImg.classList.toggle('vinyl_animation');
 
 })
@@ -128,8 +130,6 @@ function nextPrevBtn(btn){
         vinylImg.src = audioList[index].vinylImg;
         audioPlayer.src = audioList[index].song;
         audioTitle.innerHTML = audioList[index].title;
-
-        
     });
    
 }

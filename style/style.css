@@ -239,10 +239,10 @@ ul,li{
     .audio-progress-bar{
         padding: 0 5px;
         height: 1.5px;
-        
+        width: 4px;
         background-color: rgb(255, 255, 255);
         box-sizing: border-box;
-        margin: 20px 0;
+        margin: 15px;
     }
     
     
@@ -277,7 +277,7 @@ ul,li{
     .audio-btns{
         font-size: 24px;
     }
-}
+    
 @media (min-width:1200px){
     .headline{
         top: 50px;
