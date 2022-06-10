@@ -74,7 +74,7 @@ let progressCount = () =>{
     progressCounter = progressCounter + 1;
     audioProgBar.style.width = `${progressCounter}px`;
     
-    if(progressCounter >= duration){
+    if(progressCounter >= audioPlayer.duration){
         offAudio()
     }
 }
@@ -93,8 +93,6 @@ function offAudio(){
 
 audioPlay.addEventListener('click', ()=>{
     audioPlay.className = 'fa-play' == audioPlay.classList[1] ? 'fa-solid fa-pause mx-2' : 'fa-solid fa-play mx-2';
-    let duration = Math.floor(audioPlayer.duration);
-    console.log(duration);
     if(audioPlayer.paused){
         audioPlayer.play();
         progressInterval =  setInterval(progressCount,1000);
@@ -140,5 +138,12 @@ nextPrevBtn(audioPrev);
 
 
 
+VanillaTilt.init(document.querySelector(".audio-card"), {
+    max: 25,
+    speed: 400
+});
+
+//It also supports NodeList
+VanillaTilt.init(document.querySelectorAll(".audio-card"));
 
 

@@ -131,7 +131,7 @@ ul,li{
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        background-color: rgba(255, 255, 255, 0.799);
+        background-color: rgba(255, 255, 255, 0.623);
     
         font-size: 20px;
         cursor: pointer;
@@ -141,7 +141,7 @@ ul,li{
         width: 100px;
     }
     .option-bar:hover{
-        background-color: rgba(255, 255, 255, 0.666);
+        background-color: rgba(255, 255, 255, 0.467);
     }
     .option-bar__list{
         display: flex;
@@ -170,18 +170,16 @@ ul,li{
         height: 280px;
         padding: 20px 5px;
         box-sizing: border-box;
-       
-        border-radius: 10px;
-        background-color: rgb(129, 129, 129);
-        
+        position: relative;
+    }
+    .audio-card:hover{
         -webkit-box-shadow: 0px 0px 13px 8px rgba(0, 0, 0, 0.2);
         -moz-box-shadow: 0px 0px 13px 8px rgba(0, 0, 0, 0.2);
         box-shadow: 0px 0px 13px 8px rgba(0, 0, 0, 0.2);
-
     }
+    
     .vinyl{
         width: 100px;
-      
         cursor: pointer;
     }
     .vinyl_animation{
@@ -242,7 +240,7 @@ ul,li{
         width: 4px;
         background-color: rgb(255, 255, 255);
         box-sizing: border-box;
-        margin: 15px;
+        margin: 15px auto;
     }
     
     
